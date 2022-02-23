@@ -40,6 +40,7 @@ class userController {
     async login(req, res) {
         try {
             const {email, password} = req.body
+            console.log(email, password)
             const user = await UserService.findUserFromDB(email)
             if (!user) {
                 return res.status(400).json({message: `Пользователь ${email} не найден`})

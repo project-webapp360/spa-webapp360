@@ -13,14 +13,14 @@ const app = express()
 
 const PORT = process.env.PORT || 6000
 
-app.use(express.static(path.join(__dirname, '../front/build')));
-app.use('/', indexRouter)
-app.use('/api', userRoutes)
-
 app.use(express.json())
 app.use(cors())
 app.use(cookieParser())
 // app.use(express.static("public"))
+
+app.use(express.static(path.join(__dirname, '../front/build')));
+app.use('/', indexRouter)
+app.use('/api', userRoutes)
 
 
 
