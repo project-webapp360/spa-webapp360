@@ -5,6 +5,7 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 
 const userRoutes = require('./routes/userRouter')
+const path = require("path");
 
 const app = express()
 
@@ -13,8 +14,8 @@ const PORT = process.env.PORT || 6000
 app.use(express.json())
 app.use(cors())
 app.use(cookieParser())
-app.use(express.static("public"))
-
+// app.use(express.static("public"))
+app.use(express.static(path.join(__dirname, '../client/build')));
 app.use('/api', userRoutes)
 
 
