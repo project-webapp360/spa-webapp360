@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "heroku-deploy-back": "cd back && npm install && npm start",
+    "start": "cd back && npm install && npm start",
     "heroku-deploy-front": "cd front && npm install && npm run build"
   },
   "engines": {
