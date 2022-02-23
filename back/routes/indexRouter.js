@@ -5,11 +5,9 @@ const authMiddleware = require('../middlewares/authMiddleware')
 const roleMiddleware = require('../middlewares/roleMiddleware')
 const path = require("path");
 
-
-router.post('/register', userController.registration )
-router.post('/login', userController.login )
-router.get('/users', roleMiddleware('ADMIN'), userController.getAllUsers)
-router.get('/token/refresh', userController.refreshToken)
-router.post('/token/delete', userController.deleteToken)
+router.get('/', (req, res) => {
+    console.log('sdasdaasdsad')
+    res.sendFile(path.join(__dirname, '../front/build/index.html'));
+})
 
 module.exports = router
