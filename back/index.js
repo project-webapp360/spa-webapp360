@@ -20,10 +20,21 @@ app.use(express.urlencoded({
 app.use(express.json())
 app.use(cors())
 app.use(cookieParser())
-// app.use(express.static("public"))
+// app.use(express.static(path.resolve(__dirname, 'public')))
+// app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(express.static(path.join(__dirname, '../front/build')));
-app.use('/', indexRouter)
+// app.use(express.static(path.join(__dirname, '../front/build')));
+// app.use('/', indexRouter)
+app.get('/', (req, res) => {
+    console.log('Hello, React!')
+    console.log(path.join(__dirname, '../front/build'))
+    // res.sendFile(path.join(__dirname, '../front/build/index.html'));
+    res.sendFile("C:/Users/ASUS_/WebstormProjects/intspirit/SPA-WebApp360-M2/front/build/index.html")
+    // res.sendFile(path.join(__dirname, 'public/index.html'))
+    // res.json({message: "please help up"})
+    // res.render('')
+})
+
 app.use('/api', userRoutes)
 
 
